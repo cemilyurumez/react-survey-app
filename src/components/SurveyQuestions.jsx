@@ -1,6 +1,6 @@
 import { PlusIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import {v1 as uuidv1} from 'uuid';
 import QuestionEditor from "./QuestionEditor";
 
 export default function SurveyQuestions({ questions, onQuestionsUpdate }) {
@@ -10,7 +10,7 @@ export default function SurveyQuestions({ questions, onQuestionsUpdate }) {
     const addQuestion = (index) => {
         index = index !== undefined ? index : myQuestions.length
         myQuestions.splice(index, 0, {
-            id: uuidv4(),
+            id: uuidv1(),
             type: "text",
             question: "",
             description: "",

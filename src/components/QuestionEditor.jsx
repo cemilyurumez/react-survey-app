@@ -1,7 +1,8 @@
 import { PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import React, { useEffect, useState } from 'react'
 import { useStateContext } from '../contexts/ContextProvider';
-import { v4 as uuidv4 } from "uuid";
+import { v1 as uuidv1 } from "uuid";
+
 
 
 export default function QuestionEditor({ index = 0, question, addQuestion, deleteQuestion, questionChange }) {
@@ -26,7 +27,7 @@ export default function QuestionEditor({ index = 0, question, addQuestion, delet
         if (!shouldHaveOptions(model.type) && shouldHaveOptions(ev.target.value)) {
             if (!model.data.options) {
                 newModel.data = {
-                    options: [{ uuid: uuidv4(), text: "" }],
+                    options: [{ uuid: uuidv1(), text: "" }],
                 };
             }
         }
@@ -35,7 +36,7 @@ export default function QuestionEditor({ index = 0, question, addQuestion, delet
 
     function addOption() {
         model.data.options.push({
-            uuid: uuidv4(),
+            uuid: uuidv1(),
             text: ''
         })
         setModel({ ...model });
