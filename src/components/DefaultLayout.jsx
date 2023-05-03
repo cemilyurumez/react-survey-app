@@ -32,6 +32,8 @@ export default function DefaultLayout() {
       axiosClient.get('/me')
       .then(({data}) => {
         setCurrentUser(data)
+      }).catch(function(err){
+        setCurrentUser({});
       });
     }, []);
 
