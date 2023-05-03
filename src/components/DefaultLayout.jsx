@@ -33,7 +33,8 @@ export default function DefaultLayout() {
       .then(({data}) => {
         setCurrentUser(data)
       }).catch(function(err){
-        setCurrentUser({});
+            setCurrentUser({})
+            setUserToken(null)
       });
     }, []);
 
